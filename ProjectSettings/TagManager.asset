@@ -7,6 +7,11 @@ TagManager:
   - Ground
   - Bread
   - BabyPotato
+  - Chef
+  - ChefFeet
+  - BreadLoaf
+  - SlicePreview
+  - SliceBackUp
   layers:
   - Default
   - TransparentFX

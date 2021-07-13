@@ -26,6 +26,12 @@ public class ChefGround : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isGrounded = false;
+
+        if(other.CompareTag("Bread"))
+        {
+            GameObject.Find("BreadLoaf").GetComponent<ChefBread>().SetSliceCounter(0);
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

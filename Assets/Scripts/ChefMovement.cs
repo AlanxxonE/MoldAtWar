@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChefMovement : MonoBehaviour
 {
+    public GameObject slicePreviewRef;
+    public GameObject sliceBackUp;
     private GameObject chefCameraRef;
     private Rigidbody chefRb;
     private ChefGround chefFeetRef;
@@ -26,6 +28,36 @@ public class ChefMovement : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetButton("LeftHand"))
+        {
+            if(slicePreviewRef.activeSelf == false)
+            {
+                slicePreviewRef.SetActive(true);
+            }
+        }
+        else
+        {
+            if(slicePreviewRef.activeSelf == true)
+            {
+                slicePreviewRef.SetActive(false);
+            }
+        }
+        
+        if(!Input.GetButton("LeftHand") && Input.GetButton("Feet"))
+        {
+            if (sliceBackUp.activeSelf == false)
+            {
+                sliceBackUp.SetActive(true);
+            }
+        }
+        else
+        {
+            if (sliceBackUp.activeSelf == true)
+            {
+                sliceBackUp.SetActive(false);
+            }
+        }
+
         //groundedPlayer = controller.isGrounded;
         //if (groundedPlayer && playerVelocity.y < 0)
         //{
