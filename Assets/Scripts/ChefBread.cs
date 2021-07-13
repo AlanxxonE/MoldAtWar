@@ -53,7 +53,7 @@ public class ChefBread : MonoBehaviour
             sliceBackUp.GetComponent<MeshRenderer>().material = sliceBackUp.GetComponent<SlicePreview>().niceRef;
         }
 
-        if (Input.GetButton("Feet") && sliceCounter == 0 && !sliceBackUp.GetComponent<SlicePreview>().GetCheckSlicePreview())
+        if (Input.GetButtonDown("Feet") && sliceCounter == 0 && !sliceBackUp.GetComponent<SlicePreview>().GetCheckSlicePreview())
         {
             sliceCounter = 1;
             GameObject breadClone = Instantiate(breadSliceRef);

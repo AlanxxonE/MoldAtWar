@@ -23,8 +23,21 @@ public class ChefCamera : MonoBehaviour
         chefCharacter.transform.Rotate(0, Input.GetAxis("Mouse X") * turnSpeed, 0);
 
         yRot += Input.GetAxis("Mouse Y") * -turnSpeed / 10;
-        float camYAxisRotation = Mathf.Clamp(yRot, 1, 10);
+
+        if(yRot > chefCharacter.transform.position.y + 10)
+        {
+            yRot = chefCharacter.transform.position.y + 10;
+        }
+        else if(yRot < chefCharacter.transform.position.y)
+        {
+            yRot = chefCharacter.transform.position.y;
+        }
+
+        Debug.Log(chefCharacter.transform.position.y);
+        Debug.Log(this.transform.position.y);
+        float camYAxisRotation = Mathf.Clamp(yRot, chefCharacter.transform.position.y, chefCharacter.transform.position.y + 10);
         this.transform.position = new Vector3(this.transform.position.x, camYAxisRotation, this.transform.position.z);
+
         this.transform.LookAt(chefCharacter.transform.position);
     }
 }
