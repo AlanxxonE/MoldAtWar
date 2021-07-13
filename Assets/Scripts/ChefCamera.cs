@@ -8,26 +8,23 @@ public class ChefCamera : MonoBehaviour
     public float turnSpeed = 4.0f;
     public float heightOffset;
     public float widthOffset;
-    private Vector3 cameraOffset;
-    private Vector3 playerPerspective;
-    private Vector3 playerPerspectiveTwo;
+    private float yRot;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        cameraOffset = new Vector3(0, heightOffset, widthOffset);
-        playerPerspective = chefCharacter.transform.position + cameraOffset;
-        playerPerspectiveTwo = new Vector3(0, 0, widthOffset);
     }
 
     // Update is called once per frame
     void Update()
     {
         chefCharacter.transform.Rotate(0, Input.GetAxis("Mouse X") * turnSpeed, 0);
-       // playerPerspective = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * turnSpeed, Vector3.up) * playerPerspective;
-        //playerPerspectiveTwo = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * turnSpeed, Vector3.right) * playerPerspectiveTwo;
-        //this.transform.position = chefCharacter.transform.position + playerPerspective;
+
+        yRot += Input.GetAxis("Mouse Y") * -turnSpeed / 10;
+        float camYAxisRotation = Mathf.Clamp(yRot, 1, 10);
+        this.transform.position = new Vector3(this.transform.position.x, camYAxisRotation, this.transform.position.z);
         this.transform.LookAt(chefCharacter.transform.position);
     }
 }

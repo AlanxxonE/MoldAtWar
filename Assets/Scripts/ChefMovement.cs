@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class ChefMovement : MonoBehaviour
 {
-    public GameObject chefCameraRef;
+    private GameObject chefCameraRef;
     private Rigidbody chefRb;
+    private ChefGround chefFeetRef;
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private float playerSpeed = 4.0f;
-    private float jumpHeight = 1.0f;
+    public float playerSpeed;
+    public float jumpHeight;
+    private float jumpVerticalSpeed;
     private float gravityValue = -9.81f;
 
     private void Start()
     {
         //controller = gameObject.GetComponent<CharacterController>();
+        jumpVerticalSpeed = jumpHeight;
         chefRb = GetComponent<Rigidbody>();
+        chefCameraRef = GetComponentInChildren<Transform>().gameObject;
+        chefFeetRef = GetComponentInChildren<ChefGround>();
     }
 
     void Update()
@@ -41,9 +46,21 @@ public class ChefMovement : MonoBehaviour
         //}
 
         // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && chefFeetRef.GetIsGrounded())
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            if(Input.GetAxis("Vertical") < 0)
+            {
+                if (jumpVerticalSpeed == jumpHeight)
+                {
+                    jumpVerticalSpeed /= 2;
+                }
+            }
+            else
+            {
+                jumpVerticalSpeed = jumpHeight;
+            }
+
+            chefRb.velocity = new Vector3(chefRb.velocity.x, Mathf.Sqrt(jumpVerticalSpeed * -2.0f * gravityValue), chefRb.velocity.z);
         }
 
         //playerVelocity.y += gravityValue * Time.deltaTime;
