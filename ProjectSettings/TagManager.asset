@@ -12,6 +12,7 @@ TagManager:
   - BreadLoaf
   - SlicePreview
   - SliceBackUp
+  - Knife
   layers:
   - Default
   - TransparentFX

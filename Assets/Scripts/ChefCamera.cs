@@ -11,7 +11,7 @@ public class ChefCamera : MonoBehaviour
     public float widthOffset;
     public int clampMaxOffset = 10;
     public int clampMinOffset = 0;
-    private float yRot;
+    public float yRot;
 
     // Start is called before the first frame update
     void Start()

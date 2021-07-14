@@ -5,7 +5,7 @@ using UnityEngine;
 public class BreadSlice : MonoBehaviour
 {
     private float destroyCD;
-    private bool checkChef = false;
+    //private bool checkChef = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,12 @@ public class BreadSlice : MonoBehaviour
     {
         destroyCD += Time.deltaTime;
 
-        if(destroyCD > 5.0f && checkChef == false)
+        //if(destroyCD > 5.0f && checkChef == false)
+        //{
+        //    SelfDestruct();
+        //}
+
+        if (destroyCD > 5.0f)
         {
             SelfDestruct();
         }
@@ -32,9 +37,9 @@ public class BreadSlice : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("ChefFeet"))
-        {
-            checkChef = true;
-        }
+        //if(other.CompareTag("ChefFeet"))
+        //{
+        //    checkChef = true;
+        //}
     }
 }
