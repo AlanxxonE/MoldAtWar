@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LettuceMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 1a0afca07fe890845b9d7930b798402d, type: 3}
+  m_Name: LettuceMaterial NoClip
+  m_Shader: {fileID: -6465566751694194690, guid: 2a2dca290b0f17e418c4b51f557df3ff, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
