@@ -281,6 +281,9 @@ MonoBehaviour:
   aimTargetRef: {fileID: 1604187123}
   lookAtAimTargetRef: {fileID: 928503075}
   backTargetRef: {fileID: 1878249185}
+  throwPointsRef: []
+  landPointRef: {fileID: 0}
+  knifeBladeRef: {fileID: 0}
 --- !u!65 &195039486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -397,7 +400,7 @@ PrefabInstance:
     - target: {fileID: -7188904379597111783, guid: 4cb2c8c0567daac4c8d2e7a34e892d49, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5f6009cecc320fe48b5a9c71ae3a4409, type: 2}
+      objectReference: {fileID: 2100000, guid: b0dfadfbc5b85e34ea5558a4ed40602b, type: 2}
     - target: {fileID: 919132149155446097, guid: 4cb2c8c0567daac4c8d2e7a34e892d49, type: 3}
       propertyPath: m_Name
       value: MilkTest
@@ -1912,6 +1915,7 @@ MonoBehaviour:
   widthOffset: -8
   clampMaxOffset: 10
   clampMinOffset: 0
+  yRot: 0
 --- !u!114 &2131211237
 MonoBehaviour:
   m_ObjectHideFlags: 0
