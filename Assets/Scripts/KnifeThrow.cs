@@ -20,6 +20,7 @@ public class KnifeThrow : MonoBehaviour
     public bool checkKnife = false;
 
     private LineRenderer lineThrowRef;
+    private TrailRenderer lineMoveRef;
 
     //private RaycastHit hit;
 
@@ -34,6 +35,7 @@ public class KnifeThrow : MonoBehaviour
         knifeBladeRef = GameObject.FindGameObjectWithTag("Knife");
         GameObject.FindGameObjectWithTag("Knife").SetActive(false);
         lineThrowRef = GetComponent<LineRenderer>();
+        lineMoveRef = GetComponent<TrailRenderer>();
         lineThrowRef.numCornerVertices = 10;
         //landPointRef.gameObject.SetActive(false);
         lineThrowRef.enabled = false;
@@ -48,12 +50,22 @@ public class KnifeThrow : MonoBehaviour
             {
                 GetComponent<MeshRenderer>().enabled = true;
             }
+
+            if(!lineMoveRef.enabled)
+            {
+                lineMoveRef.enabled = true;
+            }
         }
         else
         {
             if (GetComponent<MeshRenderer>().enabled)
             {
                 GetComponent<MeshRenderer>().enabled = false;
+            }
+
+            if (lineMoveRef.enabled)
+            {
+                lineMoveRef.enabled = false;
             }
         }
 
