@@ -17,6 +17,7 @@ public class KnifeThrow : MonoBehaviour
     private float fovCounter;
     private float smoothStep = 4.0f;
     private float landAimRot;
+    public bool checkKnife = false;
 
     private LineRenderer lineThrowRef;
 
@@ -41,6 +42,20 @@ public class KnifeThrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(checkKnife)
+        {
+            if (!GetComponent<MeshRenderer>().enabled)
+            {
+                GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+        else
+        {
+            if (GetComponent<MeshRenderer>().enabled)
+            {
+                GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
 
         if (Input.GetButtonUp("Aim"))
         {
@@ -99,6 +114,7 @@ public class KnifeThrow : MonoBehaviour
         }
         else if(aimCounter > 0)
         {
+
             if (chefCameraRef.GetComponent<ChefCamera>().clampMaxOffset != 10)
             {
                 chefCameraRef.GetComponent<ChefCamera>().clampMaxOffset = 10;
@@ -119,8 +135,9 @@ public class KnifeThrow : MonoBehaviour
             chefCameraRef.transform.position = Vector3.Lerp(backTargetRef.position, aimTargetRef.position, aimCounter);
         }
 
-        if(Input.GetButtonDown("RightHand"))
+        if(Input.GetButtonDown("RightHand") && checkKnife)
         {
+            checkKnife = false;
             GameObject knifeClone = Instantiate(knifeBladeRef);
             knifeClone.transform.position = this.transform.position;
             knifeClone.transform.eulerAngles = this.transform.eulerAngles;

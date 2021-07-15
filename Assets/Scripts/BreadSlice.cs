@@ -5,12 +5,16 @@ using UnityEngine;
 public class BreadSlice : MonoBehaviour
 {
     private float destroyCD;
+    public GameObject breadCrumbsParticleRef;
+
     //private bool checkChef = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        GameObject breadParticleClone = Instantiate(breadCrumbsParticleRef);
+        breadParticleClone.transform.position = this.transform.position;
+        breadParticleClone.transform.parent = this.transform;
     }
 
     // Update is called once per frame
