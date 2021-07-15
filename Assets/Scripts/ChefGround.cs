@@ -5,10 +5,16 @@ using UnityEngine;
 public class ChefGround : MonoBehaviour
 {
     private bool isGrounded;
+    private bool wasOnBread = false;
 
     public bool GetIsGrounded()
     {
         return isGrounded;
+    }
+
+    public bool GetWasOnBread()
+    {
+        return wasOnBread;
     }
 
     // Start is called before the first frame update
@@ -36,6 +42,20 @@ public class ChefGround : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if(other.CompareTag("BabyPotato") && wasOnBread)
+        {
+            other.GetComponent<BabyPotatoBehaviour>().SmashedPotato();
+        }
+
+        if(other.CompareTag("Bread"))
+        {
+            wasOnBread = true;
+        }
+        else
+        {
+            wasOnBread = false;
+        }
+
         if (other.CompareTag("Ground") || other.CompareTag("Bread"))
         {
             isGrounded = true;
