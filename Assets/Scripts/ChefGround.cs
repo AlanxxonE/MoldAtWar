@@ -6,7 +6,9 @@ public class ChefGround : MonoBehaviour
 {
     private bool isGrounded;
     private bool wasOnBread = false;
-
+    private Rigidbody chefRb;
+    private ChefMovement chefMov;
+    private float backwardsForce = 5.0f;
     public bool GetIsGrounded()
     {
         return isGrounded;
@@ -20,7 +22,8 @@ public class ChefGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        chefRb = this.transform.parent.GetComponent<Rigidbody>();
+        chefMov = this.transform.parent.GetComponent<ChefMovement>();
     }
 
     // Update is called once per frame
@@ -58,7 +61,19 @@ public class ChefGround : MonoBehaviour
 
         if (other.CompareTag("Ground") || other.CompareTag("Bread"))
         {
+            if(chefMov.GetCompenetrateCheck())
+            {
+                chefMov.SetCompenetrateCheck(false);
+            }
             isGrounded = true;
+        }
+        else if(!other.CompareTag("BabyPotato"))
+        {
+            if (!chefMov.GetCompenetrateCheck())
+            {
+                chefMov.SetCompenetrateCheck(true);
+            }
+            chefRb.AddForce(-this.transform.parent.forward, ForceMode.Impulse);
         }
     }
 }

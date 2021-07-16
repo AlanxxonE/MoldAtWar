@@ -16,6 +16,17 @@ public class ChefMovement : MonoBehaviour
     public float jumpHeight;
     private float jumpVerticalSpeed;
     private float gravityValue = -9.81f;
+    private bool compenetrateCheck = false;
+
+    public bool GetCompenetrateCheck()
+    {
+        return compenetrateCheck;
+    }
+
+    public void SetCompenetrateCheck(bool b)
+    {
+        compenetrateCheck = b;
+    }
 
     private void Start()
     {
@@ -70,7 +81,10 @@ public class ChefMovement : MonoBehaviour
 
         //this.transform.eulerAngles = new Vector3(0, chefCameraRef.transform.eulerAngles.y, 0);
 
-        transform.Translate(move * playerSpeed * Time.deltaTime, Space.World);
+        if (!compenetrateCheck)
+        {
+            transform.Translate(move * playerSpeed * Time.deltaTime, Space.World);
+        }
 
         //if (move != Vector3.zero)
         //{
