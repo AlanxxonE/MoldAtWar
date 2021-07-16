@@ -13,6 +13,7 @@ TagManager:
   - SlicePreview
   - SliceBackUp
   - Knife
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - WallLayer
   - 
   - 
   - 

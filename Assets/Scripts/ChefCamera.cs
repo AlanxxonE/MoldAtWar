@@ -6,12 +6,19 @@ public class ChefCamera : MonoBehaviour
 {
     public GameObject knifeHolderRef;
     public GameObject chefCharacter;
+    public Transform backTargetRef;
+    public Transform zoomTargetRef;
     public float turnSpeed = 4.0f;
     public float heightOffset;
     public float widthOffset;
     public int clampMaxOffset = 10;
     public int clampMinOffset = 0;
     public float yRot;
+
+    private Vector3 zoomInRef = Vector3.forward;
+    private Vector3 velocity = Vector3.zero;
+    private RaycastHit cameraRay;
+    private float rayDistance = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +54,32 @@ public class ChefCamera : MonoBehaviour
         {
             this.transform.eulerAngles = new Vector3 (/*Mathf.Clamp(this.transform.position.y * 5, 0, 30)*/0, this.transform.parent.eulerAngles.y,0);
             this.transform.LookAt(knifeHolderRef.GetComponent<KnifeThrow>().lookAtAimTargetRef);
+        }
+
+        //// Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(this.transform.position, chefCharacter.transform.position, out cameraRay, Vector3.Distance(this.transform.position, chefCharacter.transform.position)))
+        {
+            if (cameraRay.collider.CompareTag("Wall"))
+            {
+                if (GetComponent<Camera>().fieldOfView > 30)
+                {
+                    GetComponent<Camera>().fieldOfView -= Time.deltaTime;
+                }
+                this.transform.position = Vector3.SmoothDamp(this.transform.position, zoomTargetRef.transform.position, ref velocity, 0.3f);
+            }
+
+        }
+        else
+        {
+            if (GetComponent<Camera>().fieldOfView < 60)
+            {
+                GetComponent<Camera>().fieldOfView += Time.deltaTime;
+            }
+
+            if (Vector3.Distance(this.transform.position, backTargetRef.transform.position) > rayDistance)
+            {
+                this.transform.position = Vector3.SmoothDamp(this.transform.position, backTargetRef.transform.position, ref velocity, 0.3f);
+            }
         }
     }
 }
