@@ -59,7 +59,7 @@ public class ChefGround : MonoBehaviour
             wasOnBread = false;
         }
 
-        if (other.CompareTag("Ground") || other.CompareTag("Bread"))
+        if (other.CompareTag("Ground") || other.CompareTag("Bread") || other.CompareTag("Tomato") || other.CompareTag("BabyPotato"))
         {
             if(chefMov.GetCompenetrateCheck())
             {
@@ -73,7 +73,7 @@ public class ChefGround : MonoBehaviour
             {
                 chefMov.SetCompenetrateCheck(true);
             }
-            chefRb.AddForce(-this.transform.parent.forward, ForceMode.Impulse);
+            chefRb.AddForce(-this.transform.parent.forward / 2, ForceMode.Impulse);
         }
     }
 }
