@@ -1329,7 +1329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cfa42e56dffeadc4b8a39e266db69ab0, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cfa42e56dffeadc4b8a39e266db69ab0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1958,9 +1958,17 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -2654122714847651167, guid: d0b36e2951d81e147b5cffe615099c53, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2654122714847651167, guid: d0b36e2951d81e147b5cffe615099c53, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3bbe67acc58219e4a88014b0e4d17c6e, type: 2}
+    - target: {fileID: -2654122714847651167, guid: d0b36e2951d81e147b5cffe615099c53, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 53fe40ec5c767044dbdfc64099e7d323, type: 2}
     - target: {fileID: -1639242348987406943, guid: d0b36e2951d81e147b5cffe615099c53, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7675,7 +7683,6 @@ GameObject:
   - component: {fileID: 731500589}
   - component: {fileID: 731500588}
   - component: {fileID: 731500587}
-  - component: {fileID: 731500591}
   m_Layer: 0
   m_Name: ChefCamera
   m_TagString: MainCamera
@@ -7799,19 +7806,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!65 &731500591
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731500585}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &734551601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 96e6c0d2d5459d949a56c0c2f289101a, type: 3}
@@ -14456,9 +14450,17 @@ PrefabInstance:
       value: 6.3647
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 52c6ba6979cbdc0418eede53d9254575, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 52c6ba6979cbdc0418eede53d9254575, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 919c8dea7a75d38458648aa49012d52a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 52c6ba6979cbdc0418eede53d9254575, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a73b31f7bde8e9d42a83d576cb1eed32, type: 2}
     - target: {fileID: 919132149155446097, guid: 52c6ba6979cbdc0418eede53d9254575, type: 3}
       propertyPath: m_Name
       value: DeformedMoldTest1 (1)
@@ -15343,7 +15345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cfa42e56dffeadc4b8a39e266db69ab0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cfa42e56dffeadc4b8a39e266db69ab0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15761,7 +15763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6b8a38cc47f57347a3788e0f2d966a1, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6b8a38cc47f57347a3788e0f2d966a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
