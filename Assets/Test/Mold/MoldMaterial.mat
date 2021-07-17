@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3214599220680863336
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -7,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FridgeMat
-  m_Shader: {fileID: -6465566751694194690, guid: 0baebbb2a939fe8418f943ce06837266, type: 3}
+  m_Name: MoldMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 3029973a065d3604d8be0e4ce4da6e85, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,32 +32,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_14106FA8:
-        m_Texture: {fileID: 2800000, guid: 9dad7762124365d4789488f17a5954a8, type: 3}
+    - Texture2D_7F51734A:
+        m_Texture: {fileID: 2800000, guid: a277288e3b15d32459fcfc263f3dba63, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - Texture2D_38E9B473:
-        m_Texture: {fileID: 2800000, guid: 4ac30552deb7b0e4eafe0a33fd436db0, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_42A598D1:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_4B7DCB64:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_53A612C9:
-        m_Texture: {fileID: 2800000, guid: 902e08c4449406142b642498e204d8cc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_6834632E:
-        m_Texture: {fileID: 2800000, guid: 4ac30552deb7b0e4eafe0a33fd436db0, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_D23F57F9:
-        m_Texture: {fileID: 2800000, guid: 902e08c4449406142b642498e204d8cc, type: 3}
+    - Texture2D_ED3F6EFA:
+        m_Texture: {fileID: 2800000, guid: acd48e0460709d04584d0192c60d1fd9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -76,8 +69,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_31414C9F: 2
-    - Vector1_E86E37D1: 0.25
+    - Boolean_EC07D1C8: 0
+    - Vector1_199485A3: 1
+    - Vector1_284B5DC6: 0
+    - Vector1_534052A0: 2
+    - Vector1_63DE4ADB: 0
+    - Vector1_AEF2CEF6: 0.42
+    - Vector1_B23AF0B4: 0.75
+    - Vector1_CE500D0B: 0
+    - Vector1_CFEFC808: 1.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -100,25 +100,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_1D646D60: {r: 0.5234959, g: 0.6415094, b: 0.54119796, a: 1}
-    - Color_907F0881: {r: 0.8443396, g: 0.97665095, b: 1, a: 1}
-    - Vector2_2FEC162F: {r: 200, g: 200, b: 0, a: 0}
-    - Vector2_F68D76B7: {r: 20, g: 20, b: 0, a: 0}
+    - Color_953E22F5: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+    - Color_C12932EB: {r: 0.71809363, g: 0.9339623, b: 0.85108656, a: 1}
+    - Color_E222A019: {r: 0.08690815, g: 0.2924528, b: 0.09387577, a: 1}
+    - Vector2_44EC5956: {r: 5, g: 5, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &166304286598034329
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 2
