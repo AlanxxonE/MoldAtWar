@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7779632012824092196
+--- !u!114 &-1539688618440644606
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MoldInteraction
-  m_Shader: {fileID: -6465566751694194690, guid: 1c79ae986f321784292822b3c48d2d74, type: 3}
+  m_Name: BabyPotatoMat
+  m_Shader: {fileID: -6465566751694194690, guid: 605c24a3a72f5114a96583111f85d03b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,6 +32,22 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_9EF8D66:
+        m_Texture: {fileID: 2800000, guid: f0b5d0c64b72b1f4e93dbc73edcc2959, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D443CA46:
+        m_Texture: {fileID: 2800000, guid: d327591b8765d604c817ee0cb7c1cb59, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D4CFBD63:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E1009526:
+        m_Texture: {fileID: 2800000, guid: 6e77e435c43bd2444b60a0d370408edd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -61,11 +77,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_14456172: 0.25
-    - Vector1_25D38EC2: -0.5
-    - Vector1_9237927C: 1
-    - Vector1_B2CB76B0: 0.1
-    - Vector1_BBE5E0BE: 50
+    - Boolean_2EECB8B8: 0
+    - Vector1_87B5471D: 1.5
+    - Vector1_A30666AC: 0
+    - Vector1_C4BA9DB2: 1
+    - Vector1_C6EE4A03: 0
+    - Vector1_C9C10C6: 0
+    - Vector1_D2471C61: 0
+    - Vector1_D959EDCF: 0
+    - Vector1_E68327D0: 0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -88,8 +108,10 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_B929D342: {r: 0.24172305, g: 0.3738473, b: 0.5283019, a: 1}
-    - Vector2_D6994C11: {r: 0, g: 0.5, b: 0, a: 0}
+    - Color_5D1B250: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
+    - Color_70C1DA33: {r: 1, g: 1, b: 1, a: 1}
+    - Vector2_DB0E1EF8: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_FF136A65: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
