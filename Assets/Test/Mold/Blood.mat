@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3859948468419434726
+--- !u!114 &-3214599220680863336
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,19 +20,26 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MilkCap
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _RECEIVE_SHADOWS_OFF
+  m_Name: Blood
+  m_Shader: {fileID: -6465566751694194690, guid: 3029973a065d3604d8be0e4ce4da6e85, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_7F51734A:
+        m_Texture: {fileID: 2800000, guid: a277288e3b15d32459fcfc263f3dba63, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_ED3F6EFA:
+        m_Texture: {fileID: 2800000, guid: acd48e0460709d04584d0192c60d1fd9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -62,6 +69,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_EC07D1C8: 0
+    - Vector1_199485A3: 1.8
+    - Vector1_284B5DC6: 0.12
+    - Vector1_534052A0: 5.4
+    - Vector1_63DE4ADB: 0
+    - Vector1_AEF2CEF6: 0.42
+    - Vector1_B23AF0B4: 0.75
+    - Vector1_CE500D0B: 0
+    - Vector1_CFEFC808: 8.32
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -75,8 +91,8 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
-    - _ReceiveShadows: 0
-    - _Smoothness: 0.296
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -84,7 +100,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.43867922, g: 0.672375, b: 1, a: 1}
+    - Color_953E22F5: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+    - Color_C12932EB: {r: 0.49056602, g: 0.016197944, b: 0.10499787, a: 1}
+    - Color_E222A019: {r: 0.6226415, g: 0.093983606, b: 0, a: 1}
+    - Vector2_44EC5956: {r: 5, g: 5, b: 0, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
