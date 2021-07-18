@@ -22,9 +22,17 @@ public class KnifeBlade : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject knifeParticleClone = Instantiate(knifeShutterParticleRef);
-        knifeParticleClone.transform.position = this.transform.position;
-        knifeParticleClone.GetComponent<ParticleSystemBehaviour>().checkDestruct = true;
-        Destroy(this.gameObject);
+        if (!other.CompareTag("Chef"))
+        {
+            GameObject knifeParticleClone = Instantiate(knifeShutterParticleRef);
+            knifeParticleClone.transform.position = this.transform.position;
+            knifeParticleClone.GetComponent<ParticleSystemBehaviour>().checkDestruct = true;
+            Destroy(this.gameObject);
+        }    
+
+        if(other.CompareTag("BabyPotato"))
+        {
+            other.GetComponent<BabyPotatoBehaviour>().SmashedPotato();
+        }
     }
 }
