@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private int tomatoHP = 1;
     public Image breadImageRef;
     public Image knifeImageRef;
+    public Transform spawnPoint;
 
     public int GetTomatoHP()
     {

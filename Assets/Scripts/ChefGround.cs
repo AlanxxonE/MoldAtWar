@@ -83,5 +83,10 @@ public class ChefGround : MonoBehaviour
                 other.GetComponent<BabyPotatoBehaviour>().SmashedPotato();
             }
         }
+
+        if(other.CompareTag("SpawnTrigger"))
+        {
+            this.transform.parent.position = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().spawnPoint.position;
+        }
     }
 }
