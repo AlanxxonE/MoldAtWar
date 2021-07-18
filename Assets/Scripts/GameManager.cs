@@ -20,9 +20,11 @@ public class GameManager : MonoBehaviour
     {
         tomatoHP = n;
 
-        if(tomatoHP == 0)
+        if(tomatoHP <= 0)
         {
-            SceneManager.LoadScene(1, LoadSceneMode.Single);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
         }
 
         for(int i = 0; i < n; i++)
@@ -62,6 +64,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetButtonDown("Cancel"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
     }
 }
