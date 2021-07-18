@@ -15,6 +15,7 @@ TagManager:
   - Knife
   - Wall
   - Tomato
+  - GameManager
   layers:
   - Default
   - TransparentFX

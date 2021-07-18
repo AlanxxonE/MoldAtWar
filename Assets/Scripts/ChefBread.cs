@@ -57,9 +57,7 @@ public class ChefBread : MonoBehaviour
         if (Input.GetButtonUp("Feet") && sliceCounter == 0 && !sliceBackUp.GetComponent<SlicePreview>().GetCheckSlicePreview())
         {
             sliceCounter = 1;
-            Color temp = gMRef.breadImageRef.color;
-            temp.a = 127;
-            gMRef.breadImageRef.color = temp;
+            gMRef.SetBreadAplha(0.5f);
             GameObject breadClone = Instantiate(breadSliceRef);
             breadClone.transform.position = sliceBackUp.transform.position;
             breadClone.transform.eulerAngles = sliceBackUp.transform.eulerAngles;
@@ -69,9 +67,7 @@ public class ChefBread : MonoBehaviour
         if (Input.GetButton("LeftHand") && Input.GetButtonUp("Jump") && sliceCounter == 0 && !slicePreview.GetComponent<SlicePreview>().GetCheckSlicePreview())
         {
             sliceCounter = 1;
-            Color temp = gMRef.breadImageRef.color;
-            temp.a = 127;
-            gMRef.breadImageRef.color = temp;
+            gMRef.SetBreadAplha(0.5f);
             GameObject breadClone = Instantiate(breadSliceRef);
             breadClone.transform.position = slicePreview.transform.position;
             breadClone.transform.eulerAngles = slicePreview.transform.eulerAngles;

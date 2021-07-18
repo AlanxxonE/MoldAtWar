@@ -8,7 +8,7 @@ public class ChefGround : MonoBehaviour
     private bool wasOnBread = false;
     private Rigidbody chefRb;
     private ChefMovement chefMov;
-    private float backwardsForce = 5.0f;
+
     public bool GetIsGrounded()
     {
         return isGrounded;
@@ -39,17 +39,14 @@ public class ChefGround : MonoBehaviour
         if(other.CompareTag("Bread"))
         {
             GameObject.Find("BreadLoaf").GetComponent<ChefBread>().SetSliceCounter(0);
+            GameManager gmRef = GameObject.Find("BreadLoaf").GetComponent<ChefBread>().gMRef;
+            gmRef.SetBreadAplha(1.0f);
             Destroy(other.gameObject);
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("BabyPotato") && wasOnBread)
-        {
-            other.GetComponent<BabyPotatoBehaviour>().SmashedPotato();
-        }
-
         if(other.CompareTag("Bread"))
         {
             wasOnBread = true;
@@ -74,6 +71,14 @@ public class ChefGround : MonoBehaviour
                 chefMov.SetCompenetrateCheck(true);
             }
             chefRb.AddForce(-this.transform.parent.forward / 2, ForceMode.Impulse);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("BabyPotato") && wasOnBread)
+        {
+            other.GetComponent<BabyPotatoBehaviour>().SmashedPotato();
         }
     }
 }

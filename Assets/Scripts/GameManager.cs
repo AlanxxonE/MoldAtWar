@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Image[] tomatoList;
     private int tomatoHP = 1;
     public Image breadImageRef;
+    public Image knifeImageRef;
 
     public int GetTomatoHP()
     {
@@ -26,15 +27,36 @@ public class GameManager : MonoBehaviour
 
         for(int i = 0; i < n; i++)
         {
-            Color temp = tomatoList[i].GetComponent<Image>().color;
+            Color temp = tomatoList[i].color;
             temp.a = 255;
-            tomatoList[i].GetComponent<Image>().color = temp;
+            tomatoList[i].color = temp;
         }
     }
+
+    public void SetBreadAplha(float a)
+    {
+        Color temp = breadImageRef.color;
+        temp.a = a;
+        breadImageRef.color = temp;
+    }
+
+    public float GetKnifeAlpha()
+    {
+        return knifeImageRef.color.a;
+    }
+
+    public void SetKnifeAplha(float a)
+    {
+        Color temp = knifeImageRef.color;
+        temp.a = a;
+        knifeImageRef.color = temp;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         SetTomatoHP(GetTomatoHP());
+        SetBreadAplha(1.0f);
     }
 
     // Update is called once per frame

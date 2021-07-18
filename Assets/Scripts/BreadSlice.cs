@@ -37,9 +37,7 @@ public class BreadSlice : MonoBehaviour
     {
         GameObject.Find("BreadLoaf").GetComponent<ChefBread>().SetSliceCounter(0);
         GameManager gmRef = GameObject.Find("BreadLoaf").GetComponent<ChefBread>().gMRef;
-        Color temp = gmRef.breadImageRef.color;
-        temp.a = 255;
-        gmRef.breadImageRef.color = temp;
+        gmRef.SetBreadAplha(1.0f);
         Destroy(this.gameObject);
     }
 

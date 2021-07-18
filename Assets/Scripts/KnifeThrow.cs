@@ -18,6 +18,7 @@ public class KnifeThrow : MonoBehaviour
     private float smoothStep = 4.0f;
     private float landAimRot;
     public bool checkKnife = false;
+    private GameManager gMRef;
 
     private LineRenderer lineThrowRef;
     private TrailRenderer lineMoveRef;
@@ -32,6 +33,7 @@ public class KnifeThrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gMRef = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         knifeBladeRef = GameObject.FindGameObjectWithTag("Knife");
         GameObject.FindGameObjectWithTag("Knife").SetActive(false);
         lineThrowRef = GetComponent<LineRenderer>();
@@ -46,6 +48,11 @@ public class KnifeThrow : MonoBehaviour
     {
         if(checkKnife)
         {
+            if(gMRef.GetKnifeAlpha() != 1.0f)
+            {
+                gMRef.SetKnifeAplha(1.0f);
+            }
+
             if (!GetComponent<MeshRenderer>().enabled)
             {
                 GetComponent<MeshRenderer>().enabled = true;
@@ -58,6 +65,11 @@ public class KnifeThrow : MonoBehaviour
         }
         else
         {
+            if (gMRef.GetKnifeAlpha() != 0.5f)
+            {
+                gMRef.SetKnifeAplha(0.5f);
+            }
+
             if (GetComponent<MeshRenderer>().enabled)
             {
                 GetComponent<MeshRenderer>().enabled = false;

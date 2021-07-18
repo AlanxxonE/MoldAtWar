@@ -57,7 +57,7 @@ public class ChefCamera : MonoBehaviour
         }
 
         //// Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(this.transform.position, chefCharacter.transform.position, out cameraRay, Vector3.Distance(this.transform.position, chefCharacter.transform.position)))
+        if (Physics.Raycast(chefCharacter.transform.position, -this.transform.forward, out cameraRay, Vector3.Distance(this.transform.position, chefCharacter.transform.position)))
         {
             if (cameraRay.collider.CompareTag("Wall"))
             {
@@ -65,7 +65,7 @@ public class ChefCamera : MonoBehaviour
                 {
                     GetComponent<Camera>().fieldOfView -= Time.deltaTime;
                 }
-                this.transform.position = Vector3.SmoothDamp(this.transform.position, zoomTargetRef.transform.position, ref velocity, 0.3f);
+                this.transform.position = Vector3.SmoothDamp(this.transform.position, zoomTargetRef.transform.position, ref velocity, 0.2f);
             }
 
         }
@@ -78,7 +78,7 @@ public class ChefCamera : MonoBehaviour
 
             if (Vector3.Distance(this.transform.position, backTargetRef.transform.position) > rayDistance)
             {
-                this.transform.position = Vector3.SmoothDamp(this.transform.position, backTargetRef.transform.position, ref velocity, 0.3f);
+                this.transform.position = Vector3.SmoothDamp(this.transform.position, backTargetRef.transform.position, ref velocity, 0.2f);
             }
         }
     }

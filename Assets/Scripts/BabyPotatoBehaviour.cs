@@ -32,7 +32,17 @@ public class BabyPotatoBehaviour : MonoBehaviour
         else
         {
             this.transform.position = new Vector3(Vector3.Lerp(this.transform.position, chefRef.transform.position, Time.deltaTime * potatoSpeed).x, this.transform.position.y, Vector3.Lerp(this.transform.position, chefRef.transform.position, Time.deltaTime * potatoSpeed).z);
-            this.transform.LookAt(chefRef.transform.position);
+            var lookPos = chefRef.transform.position - this.transform.position;
+            if (this.transform.eulerAngles.y < 90)
+            {
+                lookPos.y = 0.1f;
+            }
+            else
+            {
+                lookPos.y = 0.0f;
+            }
+            var rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * potatoSpeed * 2.0f);
         }
     }
 
