@@ -56,6 +56,7 @@ public class ChefBread : MonoBehaviour
 
         if (Input.GetButtonUp("Feet") && sliceCounter == 0 && !sliceBackUp.GetComponent<SlicePreview>().GetCheckSlicePreview())
         {
+            GetComponentInParent<ChefMovement>().chefAnimator.SetTrigger("PlaceBread");
             sliceCounter = 1;
             gMRef.SetBreadAplha(0.5f);
             GameObject breadClone = Instantiate(breadSliceRef);
@@ -66,6 +67,7 @@ public class ChefBread : MonoBehaviour
 
         if (Input.GetButton("LeftHand") && Input.GetButtonUp("Jump") && sliceCounter == 0 && !slicePreview.GetComponent<SlicePreview>().GetCheckSlicePreview())
         {
+            GetComponentInParent<ChefMovement>().chefAnimator.SetTrigger("PlaceBread");
             sliceCounter = 1;
             gMRef.SetBreadAplha(0.5f);
             GameObject breadClone = Instantiate(breadSliceRef);

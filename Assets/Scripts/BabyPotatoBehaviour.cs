@@ -8,7 +8,7 @@ public class BabyPotatoBehaviour : MonoBehaviour
     private GameObject chefRef;
     private Vector3 randomPotatoMovement;
     private float potatoSpeed = 2.0f;
-    private int amountOfKnives = 0;
+    private bool spawnKnife = true;
 
     // Start is called before the first frame update
     void Start()
@@ -58,15 +58,16 @@ public class BabyPotatoBehaviour : MonoBehaviour
 
     public void SmashedPotato()
     {
-        amountOfKnives = 0;
-        amountOfKnives++;
-
-        if (amountOfKnives <= 1)
+        if (this.gameObject != null)
         {
-            GameObject pickUpKnifeClone = Instantiate(pickUpKnifeRef);
-            pickUpKnifeClone.transform.position = this.transform.position;
-            pickUpKnifeClone.GetComponent<Rigidbody>().velocity = Random.onUnitSphere * 10;
+            if (spawnKnife)
+            {
+                spawnKnife = false;
+                GameObject pickUpKnifeClone = Instantiate(pickUpKnifeRef);
+                pickUpKnifeClone.transform.position = this.transform.position;
+                pickUpKnifeClone.GetComponent<Rigidbody>().velocity = Random.onUnitSphere * 10;
+            }
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
     }
 }

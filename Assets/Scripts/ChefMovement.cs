@@ -17,6 +17,7 @@ public class ChefMovement : MonoBehaviour
     private float jumpVerticalSpeed;
     private float gravityValue = -9.81f;
     private bool compenetrateCheck = false;
+    public Animator chefAnimator;
 
     public bool GetCompenetrateCheck()
     {
@@ -39,7 +40,8 @@ public class ChefMovement : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButton("LeftHand"))
+        //chefAnimator.SetBool("Walk", true);
+        if (Input.GetButton("LeftHand"))
         {
             if(slicePreviewRef.activeSelf == false)
             {
@@ -76,6 +78,15 @@ public class ChefMovement : MonoBehaviour
         //}
 
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        if (Mathf.Abs(move.x) > 0)
+        {
+            chefAnimator.SetFloat("WalkSpeed", Mathf.Abs(move.x));
+        }
+        else
+        {
+            chefAnimator.SetFloat("WalkSpeed", Mathf.Abs(move.z));
+        }
         //controller.Move(move * Time.deltaTime * playerSpeed);
         move = chefCameraRef.transform.TransformDirection(move);
 
@@ -94,7 +105,9 @@ public class ChefMovement : MonoBehaviour
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && chefFeetRef.GetIsGrounded())
         {
-            if(Input.GetAxis("Vertical") < 0)
+            chefAnimator.SetTrigger("JumpTrigger");
+
+            if (Input.GetAxis("Vertical") < 0)
             {
                 if (jumpVerticalSpeed == jumpHeight)
                 {

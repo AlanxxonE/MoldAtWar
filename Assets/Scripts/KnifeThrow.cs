@@ -161,6 +161,7 @@ public class KnifeThrow : MonoBehaviour
 
         if(Input.GetButtonDown("RightHand") && checkKnife)
         {
+            GetComponentInParent<ChefMovement>().chefAnimator.SetTrigger("KnifeThrow");
             checkKnife = false;
             GameObject knifeClone = Instantiate(knifeBladeRef);
             knifeClone.transform.position = this.transform.position;

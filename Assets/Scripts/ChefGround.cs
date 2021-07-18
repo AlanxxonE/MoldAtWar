@@ -76,9 +76,12 @@ public class ChefGround : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("BabyPotato") && wasOnBread)
+        if (other.gameObject != null)
         {
-            other.GetComponent<BabyPotatoBehaviour>().SmashedPotato();
+            if (other.CompareTag("BabyPotato") && wasOnBread)
+            {
+                other.GetComponent<BabyPotatoBehaviour>().SmashedPotato();
+            }
         }
     }
 }
