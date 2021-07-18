@@ -8,6 +8,7 @@ public class BabyPotatoBehaviour : MonoBehaviour
     private GameObject chefRef;
     private Vector3 randomPotatoMovement;
     private float potatoSpeed = 2.0f;
+    private int amountOfKnives = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -48,16 +49,24 @@ public class BabyPotatoBehaviour : MonoBehaviour
 
     IEnumerator MovePotato()
     {
-        randomPotatoMovement = new Vector3(this.transform.position.x + (Random.insideUnitSphere.x * potatoSpeed), 0, this.transform.position.z + (Random.insideUnitSphere.z * potatoSpeed));
+        int randomDistanceX = Random.Range(-10, 11);
+        int randomDistanceZ = Random.Range(-10, 11);
+        randomPotatoMovement = Vector3.Lerp(this.transform.position,new Vector3(this.transform.position.x + (randomDistanceX * 10), 0,this.transform.position.z + (randomDistanceZ * 10)), Time.deltaTime * potatoSpeed);
         yield return new WaitForSeconds(1f);
         StartCoroutine(MovePotato());
     }
 
     public void SmashedPotato()
     {
-        GameObject pickUpKnifeClone = Instantiate(pickUpKnifeRef);
-        pickUpKnifeClone.transform.position = this.transform.position;
-        pickUpKnifeClone.GetComponent<Rigidbody>().velocity = Random.onUnitSphere * 10;
+        amountOfKnives = 0;
+        amountOfKnives++;
+
+        if (amountOfKnives <= 1)
+        {
+            GameObject pickUpKnifeClone = Instantiate(pickUpKnifeRef);
+            pickUpKnifeClone.transform.position = this.transform.position;
+            pickUpKnifeClone.GetComponent<Rigidbody>().velocity = Random.onUnitSphere * 10;
+        }
         Destroy(this.gameObject);
     }
 }

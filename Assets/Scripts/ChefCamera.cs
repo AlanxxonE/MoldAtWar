@@ -15,6 +15,7 @@ public class ChefCamera : MonoBehaviour
     public int clampMinOffset = 0;
     public float yRot;
 
+    private float cameraCD;
     private Vector3 zoomInRef = Vector3.forward;
     private Vector3 velocity = Vector3.zero;
     private RaycastHit cameraRay;
@@ -59,26 +60,32 @@ public class ChefCamera : MonoBehaviour
         //// Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(chefCharacter.transform.position, -this.transform.forward, out cameraRay, Vector3.Distance(this.transform.position, chefCharacter.transform.position)))
         {
+            cameraCD = 2.0f;
             if (cameraRay.collider.CompareTag("Wall"))
             {
                 if (GetComponent<Camera>().fieldOfView > 30)
                 {
                     GetComponent<Camera>().fieldOfView -= Time.deltaTime;
                 }
-                this.transform.position = Vector3.SmoothDamp(this.transform.position, zoomTargetRef.transform.position, ref velocity, 0.2f);
+                this.transform.position = Vector3.SmoothDamp(this.transform.position, zoomTargetRef.transform.position, ref velocity, 0.4f);
             }
 
         }
         else
         {
-            if (GetComponent<Camera>().fieldOfView < 60)
-            {
-                GetComponent<Camera>().fieldOfView += Time.deltaTime;
-            }
+            cameraCD -= Time.deltaTime;
 
-            if (Vector3.Distance(this.transform.position, backTargetRef.transform.position) > rayDistance)
+            if (cameraCD <= 0)
             {
-                this.transform.position = Vector3.SmoothDamp(this.transform.position, backTargetRef.transform.position, ref velocity, 0.2f);
+                if (GetComponent<Camera>().fieldOfView < 60)
+                {
+                    GetComponent<Camera>().fieldOfView += Time.deltaTime;
+                }
+
+                if (Vector3.Distance(this.transform.position, backTargetRef.transform.position) > rayDistance)
+                {
+                    this.transform.position = Vector3.SmoothDamp(this.transform.position, backTargetRef.transform.position, ref velocity, 0.4f);
+                }
             }
         }
     }
