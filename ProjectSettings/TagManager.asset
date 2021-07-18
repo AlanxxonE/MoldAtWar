@@ -17,6 +17,7 @@ TagManager:
   - Tomato
   - GameManager
   - SpawnTrigger
+  - LidTag
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChefMovement : MonoBehaviour
 {
+    public GameManager gmRef;
     public GameObject slicePreviewRef;
     public GameObject sliceBackUp;
     private GameObject chefCameraRef;
@@ -105,6 +106,8 @@ public class ChefMovement : MonoBehaviour
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && chefFeetRef.GetIsGrounded())
         {
+            gmRef.audioManagerRef.audioList[3].Play();
+
             chefAnimator.SetTrigger("JumpTrigger");
 
             if (Input.GetAxis("Vertical") < 0)

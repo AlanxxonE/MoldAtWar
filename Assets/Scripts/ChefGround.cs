@@ -56,7 +56,7 @@ public class ChefGround : MonoBehaviour
             wasOnBread = false;
         }
 
-        if (other.CompareTag("Ground") || other.CompareTag("Bread") || other.CompareTag("Tomato") || other.CompareTag("BabyPotato"))
+        if (other.CompareTag("Ground") || other.CompareTag("Bread") || other.CompareTag("Tomato") || other.CompareTag("BabyPotato") || other.CompareTag("LidTag"))
         {
             if(chefMov.GetCompenetrateCheck())
             {
@@ -80,6 +80,7 @@ public class ChefGround : MonoBehaviour
         {
             if (other.CompareTag("BabyPotato") && wasOnBread)
             {
+                chefMov.gmRef.audioManagerRef.audioList[6].Play();
                 other.GetComponent<BabyPotatoBehaviour>().SmashedPotato();
             }
         }
@@ -87,6 +88,14 @@ public class ChefGround : MonoBehaviour
         if(other.CompareTag("SpawnTrigger"))
         {
             this.transform.parent.position = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().spawnPoint.position;
+        }
+
+        if(other.CompareTag("LidTag"))
+        {
+            if (!chefMov.gmRef.LidRef.GetComponent<Animator>().enabled)
+            {
+                chefMov.gmRef.LidRef.GetComponent<Animator>().enabled = true;
+            }
         }
     }
 }

@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject LidRef;
     public Image[] tomatoList;
     private int tomatoHP = 1;
     public Image breadImageRef;
     public Image knifeImageRef;
     public Transform spawnPoint;
-
+    public AudioManager audioManagerRef;
     public int GetTomatoHP()
     {
         return tomatoHP;

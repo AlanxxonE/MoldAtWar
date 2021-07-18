@@ -22,6 +22,7 @@ public class TomatoHPPickUp : MonoBehaviour
     {
         if(other.CompareTag("Chef"))
         {
+            gMRef.audioManagerRef.audioList[5].Play();
             gMRef.SetTomatoHP(gMRef.GetTomatoHP() + 1);
             Destroy(this.gameObject);
         }

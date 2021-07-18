@@ -161,6 +161,7 @@ public class KnifeThrow : MonoBehaviour
 
         if(Input.GetButtonDown("RightHand") && checkKnife)
         {
+            gMRef.audioManagerRef.audioList[6].Play();
             GetComponentInParent<ChefMovement>().chefAnimator.SetTrigger("KnifeThrow");
             checkKnife = false;
             GameObject knifeClone = Instantiate(knifeBladeRef);

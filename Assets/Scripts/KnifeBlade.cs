@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KnifeBlade : MonoBehaviour
 {
+    public AudioManager audioManagerRef;
     public GameObject knifeShutterParticleRef;
 
     //private Rigidbody knifeRb;
@@ -22,6 +23,8 @@ public class KnifeBlade : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        audioManagerRef.audioList[7].Play();
+
         if (!other.CompareTag("Chef"))
         {
             GameObject knifeParticleClone = Instantiate(knifeShutterParticleRef);

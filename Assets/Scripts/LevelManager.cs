@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public AudioManager audioManagerRef;
     public Image knifeCursorRef; 
 
     // Start is called before the first frame update
@@ -22,16 +23,19 @@ public class LevelManager : MonoBehaviour
 
     public void ChangeScene()
     {
+        audioManagerRef.audioList[2].Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
     }
 
     public void MenuScene()
     {
+        audioManagerRef.audioList[2].Play();
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
     public void ExitGame()
     {
+        audioManagerRef.audioList[2].Play();
         Application.Quit();
     }
 }
